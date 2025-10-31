@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uma Jornada Ainda Mais Especial...</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+
+        <div class="screen active" id="start-screen">
+            <h1>Uma Jornada Inesperada</h1>
+            <p>Prepare-se. Responda as perguntas corretamente para desvendar o mistério final. Cada passo nos trouxe até aqui.</p>
+            <button onclick="startGame()">Começar a Jornada</button>
+        </div>
+
+        <div class="screen" id="question-1">
+            <h2>Pergunta 1</h2>
+            <p>Onde foi o nosso primeiro beijo?</p>
+            <button onclick="checkAnswer(1, 'a')" class="option-wrong">Naquele banco da praça</button>
+            <button onclick="checkAnswer(1, 'b')" class="option-wrong">Na sua casa</button>
+            <button onclick="checkAnswer(1, 'c')" class="option-correct">Na festa do [Nome da Festa]</button>
+            <button onclick="checkAnswer(1, 'd')" class="option-wrong">No cinema</button>
+        </div>
+
+        <div class="screen" id="question-2">
+            <h2>Pergunta 2</h2>
+            <p>Qual é o nome do primeiro filme que vimos juntos?</p>
+            <button onclick="checkAnswer(2, 'a')" class="option-wrong">[Nome do Filme Errado 1]</button>
+            <button onclick="checkAnswer(2, 'b')" class="option-correct">[Nome do Filme Certo]</button>
+            <button onclick="checkAnswer(2, 'c')" class="option-wrong">[Nome do Filme Errado 2]</button>
+        </div>
+        
+        <div class="screen" id="question-3">
+            <h2>Pergunta 3</h2>
+            <p>Qual a data exata em que começamos a namorar?</p>
+            <button onclick="checkAnswer(3, 'a')" class="option-wrong">[Data Errada]</button>
+            <button onclick="checkAnswer(3, 'b')" class="option-wrong">[Data Errada]</button>
+            <button onclick="checkAnswer(3, 'c')" class="option-correct">[Data Certa]</button>
+        </div>
+
+        <div class="screen" id="question-4">
+            <h2>Pergunta 4: Onde Está a Resposta?</h2>
+            <p>Se você somar o número de meses que estamos juntos com o número da casa dos seus pais, subtrair o meu ano de nascimento e multiplicar pelo número de letras do seu primeiro nome, qual o resultado?</p>
+            <p class="hint">Dica: A resposta está em um papel escondido **atrás do seu livro favorito**.</p>
+            <button onclick="checkAnswer(4, 'a')" class="option-wrong">[Resultado Errado A]</button>
+            <button onclick="checkAnswer(4, 'b')" class="option-correct">[Resultado Certo]</button>
+            <button onclick="checkAnswer(4, 'c')" class="option-wrong">[Resultado Errado C]</button>
+        </div>
+
+        <div class="screen" id="question-5">
+            <h2>Pergunta 5: A Pista Continua...</h2>
+            <p>Se dividirmos o número de vezes que você disse "eu te amo" hoje pelo número de vezes que eu te dei flores, e somarmos o dia do nosso primeiro encontro, qual o valor final?</p>
+            <p class="hint">Dica: Procure no **fundo da gaveta de meias**.</p>
+            <button onclick="checkAnswer(5, 'a')" class="option-wrong">[Resultado Errado A]</button>
+            <button onclick="checkAnswer(5, 'b')" class="option-wrong">[Resultado Errado B]</button>
+            <button onclick="checkAnswer(5, 'c')" class="option-correct">[Resultado Certo]</button>
+        </div>
+
+        <div class="screen" id="question-6">
+            <h2>Pergunta 6: Quase Lá!</h2>
+            <p>Qual é o resultado de (seu aniversário - meu aniversário) * (número de anos que estamos juntos) + (sua idade - minha idade)?</p>
+            <p class="hint">Dica: A resposta final está **dentro da sua bolsa, no bolso pequeno**.</p>
+            <button onclick="checkAnswer(6, 'a')" class="option-correct">[Resultado Certo]</button>
+            <button onclick="checkAnswer(6, 'b')" class="option-wrong">[Resultado Errado B]</button>
+        </div>
+
+        <div class="screen" id="final-prize-reveal">
+            <h1>Você Desvendou o Mistério!</h1>
+            <p>Parabéns, minha detetive do amor! Todas as pistas foram encontradas, e você provou que é a única que conhece todos os nossos segredos e momentos.</p>
+            <p>A resposta que você tanto procura, o nosso verdadeiro "tesouro", está escondido no seguinte local:</p>
+            <h2 class="treasure-location">[O LOCAL SECRETO ONDE ESTÁ A ALIANÇA E O BUQUÊ, EX: "Atrás do Travesseiro da Cama", "Dentro do Vaso de Flores da Sala", "No Último Armário da Cozinha"]</h2>
+            <p>Vá agora e encontre o seu prêmio. Estarei te esperando!</p>
+            <button onclick="transitionToCelebration()">Clique aqui, após ter encontrado o tesouro!</button>
+        </div>
+
+        <div class="screen" id="celebration-screen">
+            <h1>Meu Amor, você aceita?</h1>
+            <video id="our-video" width="100%" controls autoplay loop muted>
+                <source src="assets/our-video.mp4" type="video/mp4">
+                Seu navegador não suporta o vídeo.
+            </video>
+            <p class="romantic-message">Cada momento com você é um presente. Você é a mulher da minha vida, e cada "sim" é o início de um novo e lindo capítulo.</p>
+        </div>
+
+        <div id="error-overlay" class="hidden">
+            <div class="error-box">
+                <img id="error-gif" src="assets/error.gif" alt="Errado!">
+                <p>Hahaha, resposta errada! Tente de novo, detetive do amor!</p>
+                <button onclick="hideError()">Ok, vou tentar...</button>
+            </div>
+        </div>
+
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="music.mp3" type="audio/mpeg">
+        Seu navegador não suporta áudio.
+    </audio>
+    <audio id="romantic-bg-music" loop>
+        <source src="romantic-music.mp3" type="audio/mpeg">
+        Seu navegador não suporta áudio.
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

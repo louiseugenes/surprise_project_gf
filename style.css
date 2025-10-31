@@ -1,0 +1,279 @@
+/* Configuração Global */
+* {
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif; /* Fonte padrão */
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #1a1a1a; /* Fundo escuro "misterioso" */
+    color: #f0f0f0; /* Texto claro */
+    overflow-x: hidden; /* Evita scroll horizontal */
+}
+
+/* Container Principal (Responsivo) */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    min-height: 100vh;
+    position: relative; /* Para efeitos de fundo */
+    overflow: hidden; /* Para esconder elementos que saiam */
+}
+
+/* Efeito de Partículas no Fundo */
+.app-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(60, 0, 80, 0.3) 0%, rgba(20, 0, 40, 0.7) 100%); /* Gradiente sutil */
+    opacity: 0.7;
+    z-index: -1; /* Fica atrás do conteúdo */
+    animation: pulseBackground 15s infinite alternate; /* Animação de fundo */
+}
+
+@keyframes pulseBackground {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.1); }
+}
+
+
+/* Telas do Quiz */
+.screen {
+    display: none; /* Esconde todas as telas por padrão */
+    flex-direction: column;
+    width: 100%;
+    max-width: 600px; /* Garante que não fique largo demais no PC */
+    background: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente para as caixas */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(175, 0, 255, 0.3); /* Sombra roxa misteriosa */
+    transform: scale(0.9);
+    opacity: 0;
+    transition: all 0.5s ease-out; /* Transição suave */
+}
+
+.screen.active {
+    display: flex; /* Mostra apenas a tela ativa */
+    transform: scale(1);
+    opacity: 1;
+}
+
+h1 {
+    font-size: 2.8rem;
+    color: #e0b0ff; /* Cor de destaque roxa */
+    text-shadow: 0 0 15px rgba(224, 176, 255, 0.5);
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif; /* Fonte mais elegante */
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: #b0ffb0; /* Cor verde para as perguntas "difíceis" */
+    font-family: 'Playfair Display', serif;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.hint {
+    font-style: italic;
+    color: #ffd700; /* Dica em amarelo dourado */
+    background-color: rgba(255, 215, 0, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    border-left: 5px solid #ffd700;
+}
+
+/* Botões */
+button {
+    background-color: #333;
+    color: #f0f0f0;
+    border: 2px solid #555;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 10px;
+    transition: background-color 0.3s, transform 0.2s, border-color 0.3s;
+}
+
+button:hover {
+    background-color: #444;
+    transform: scale(1.02);
+    border-color: #e0b0ff;
+}
+
+/* Marcações de opções para teste (remover depois) */
+.option-correct {
+    border-color: #4CAF50 !important; /* Verde para correto */
+}
+.option-wrong {
+    border-color: #F44336 !important; /* Vermelho para errado */
+}
+
+/* Overlay de Erro */
+.hidden {
+    display: none !important;
+}
+
+#error-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Fundo mais escuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.error-box {
+    background-color: #222; /* Fundo escuro para a caixa de erro */
+    color: #f0f0f0;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.5); /* Sombra vermelha */
+    border: 3px solid #ff0000;
+    animation: shake 0.6s ease-in-out; /* Animação de "shake" */
+}
+
+.error-box img {
+    max-width: 200px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.error-box p {
+    color: #f0f0f0;
+    font-size: 1.3rem;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.error-box button {
+    background-color: #d9534f; /* Vermelho erro */
+    color: white;
+    border: none;
+    margin-top: 20px;
+}
+
+/* Animação de Shake (Erro) */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    10% { transform: translateX(-15px); }
+    20% { transform: translateX(15px); }
+    30% { transform: translateX(-15px); }
+    40% { transform: translateX(15px); }
+    50% { transform: translateX(-15px); }
+    60% { transform: translateX(15px); }
+    70% { transform: translateX(-15px); }
+    80% { transform: translateX(15px); }
+    90% { transform: translateX(-15px); }
+    100% { transform: translateX(0); }
+}
+
+/* TELA DE REVELAÇÃO FINAL */
+#final-prize-reveal h1 {
+    color: #FFD700; /* Dourado */
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+}
+#final-prize-reveal p {
+    font-size: 1.3rem;
+}
+.treasure-location {
+    font-size: 2.5rem;
+    color: #b0ffb0; /* Verde vibrante */
+    font-family: 'Playfair Display', serif;
+    margin: 30px 0;
+    text-shadow: 0 0 20px rgba(176, 255, 176, 0.8);
+    animation: pulseLocation 2s infinite alternate;
+}
+
+@keyframes pulseLocation {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.05); opacity: 0.9; }
+}
+
+/* TELA DE CELEBRAÇÃO ROMÂNTICA */
+#celebration-screen {
+    background: linear-gradient(to top right, #ffafbd, #ffc3a0); /* Gradiente suave */
+    color: #333; /* Texto escuro */
+    box-shadow: 0 0 40px rgba(255, 175, 189, 0.8);
+    padding: 40px;
+    border-radius: 20px;
+    animation: fadeIn 2s forwards;
+    display: none; /* Escondido por padrão, JavaScript o mostrará */
+}
+
+#celebration-screen.active {
+    display: flex;
+}
+
+#celebration-screen h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    color: #8A2BE2; /* Roxo */
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    margin-bottom: 30px;
+}
+
+#our-video {
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    margin-bottom: 30px;
+    animation: videoPopUp 1s ease-out;
+}
+
+@keyframes videoPopUp {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.romantic-message {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #5a0080; /* Roxo mais escuro */
+    line-height: 1.6;
+    font-style: italic;
+    margin-top: 20px;
+    animation: textFadeIn 2.5s ease-out 1s forwards; /* Atraso para aparecer depois do vídeo */
+    opacity: 0;
+}
+
+@keyframes textFadeIn {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsividade adicional para telas muito pequenas */
+@media (max-width: 480px) {
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.5rem; }
+    p { font-size: 1rem; }
+    button { padding: 12px 15px; font-size: 1rem; }
+    .treasure-location { font-size: 1.8rem; }
+    #celebration-screen h1 { font-size: 2.5rem; }
+    .romantic-message { font-size: 1.2rem; }
+}
