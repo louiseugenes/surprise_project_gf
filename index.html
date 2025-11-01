@@ -55,7 +55,7 @@
             <h2>Onde Está a Resposta?</h2>
             <p>Se você somar o número de meses que estamos juntos com o número da casa dos seus pais, subtrair o meu ano
                 de nascimento e multiplicar pelo número de letras do seu primeiro nome, qual o resultado?</p>
-            <p class="hint">Dica: A resposta está em um papel escondido **atrás do seu livro favorito**.</p>
+            <p class="hint">Dica: Galinha**.</p>
             <input type="text" id="q4-input" placeholder="Digite a resposta do papel...">
             <button onclick="checkInputAnswer(4)">Verificar Resposta</button>
         </div>
@@ -64,46 +64,43 @@
             <h2>A Pista Continua...</h2>
             <p>Se dividirmos o número de vezes que você disse "eu te amo" hoje pelo número de vezes que eu te dei
                 flores, e somarmos o dia do nosso primeiro encontro, qual o valor final?</p>
-            <p class="hint">Dica: Procure no **fundo da gaveta de meias**.</p>
-            <input type="text" id="q4-input" placeholder="Digite a resposta do papel...">
-            <button onclick="checkInputAnswer(4)">Verificar Resposta</button>
+            <p class="hint">Dica: capacete...**.</p>
+            <input type="text" id="q5-input" placeholder="Digite a resposta do papel...">
+            <button onclick="checkInputAnswer(5)">Verificar Resposta</button>
         </div>
 
         <div class="screen" id="question-6">
             <h2>Quase Lá!</h2>
-            <p>Qual é o resultado de (seu aniversário - meu aniversário) * (número de anos que estamos juntos) + (sua
+            <p>Qual é o resultado de (seu aniversário - meu aniversário) * (número de dias que estamos juntos) + (sua
                 idade - minha idade)?</p>
-            <p class="hint">Dica: A resposta final está **dentro da sua bolsa, no bolso pequeno**.</p>
-            <input type="text" id="q4-input" placeholder="Digite a resposta do papel...">
-            <button onclick="checkInputAnswer(4)">Verificar Resposta</button>
+            <p class="hint">Dica: O outro quarto (Feche a porta dele para ajudar a achar ❤️)...**.</p>
+            <input type="text" id="q6-input" placeholder="Digite a resposta do papel...">
+            <button onclick="checkInputAnswer(6)">Verificar Resposta</button>
         </div>
 
         <div class="screen" id="final-prize-reveal">
             <h1>Você Desvendou o Mistério!</h1>
-            <p>Parabéns, minha detetive do amor! Todas as pistas foram encontradas, e você provou que é a única que
-                conhece todos os nossos segredos e momentos.</p>
-            <p>A resposta que você tanto procura, o nosso verdadeiro "tesouro", está escondido no seguinte local:</p>
-            <h2 class="treasure-location">[O LOCAL SECRETO ONDE ESTÁ A ALIANÇA E O BUQUÊ, EX: "Atrás do Travesseiro da
-                Cama", "Dentro do Vaso de Flores da Sala", "No Último Armário da Cozinha"]</h2>
-            <p>Vá agora e encontre o seu prêmio. Estarei te esperando!</p>
+            <p>Parabéns, meu amor linda perfeita! Você conseguiu chegar até o final, nunca duvidei!</p>
+            <p>Mas então, na realidade, o que você mais está procurando está...</p>
+            <h2 class="treasure-location">Onde demos nosso primeiro beijo aqui em casa</h2>
+            <p>...</p>
             <button onclick="transitionToCelebration()">Clique aqui, após ter encontrado o tesouro!</button>
         </div>
 
         <div class="screen" id="celebration-screen">
-            <h1>Meu Amor, você aceita?</h1>
+            <h1>❤️</h1>
             <video id="our-video" width="100%" controls autoplay loop muted>
                 <source src="assets/our-video.mp4" type="video/mp4">
                 Seu navegador não suporta o vídeo.
             </video>
-            <p class="romantic-message">Cada momento com você é um presente. Você é a mulher da minha vida, e cada "sim"
-                é o início de um novo e lindo capítulo.</p>
+            <p class="romantic-message">Eu te amo pra sempre!</p>
         </div>
 
         <div id="error-overlay" class="hidden">
             <div class="error-box">
                 <img id="error-gif" src="assets/error.gif" alt="Errado!">
-                <p>Hahaha, resposta errada! Tente de novo, detetive do amor!</p>
-                <button onclick="hideError()">Ok, vou tentar...</button>
+                <p>Uii, haha, aiii, haha, uiiiiiiih!</p>
+                <button onclick="hideError()">🙄...</button>
             </div>
         </div>
 

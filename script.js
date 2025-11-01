@@ -4,7 +4,7 @@ const correctAnswers = {
     3: 'a',
     4: '120208',
     5: '102004',
-    6: 'a'
+    6: '-150'
 };
 
 const bgMusic = document.getElementById('bg-music');
